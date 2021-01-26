@@ -1,0 +1,29 @@
+def favouritecolors(colors):
+  colors = ["orange","blue","red","purple"]
+  print(colors)
+  
+def numberlist(numbers):
+  numbers = [list(range(30,61,3))]
+  print(numbers)
+  
+def wheatherPlan(plan,newplan):
+  plan = {
+      "Sunny":"play",
+      "Rainy":"watching TV",
+     "Cloudy":"walk"}
+  print(plan)
+  newplan = {"Snowy":"ski"}
+  plan.update(newplan)
+  print(plan)
+ 
+ def scoring(score):
+  score = input("What is the score?")
+  score = int(score)
+  if score >= 90:
+     print("The student earned a lettergrade of A")
+  elif score >=80:
+     print("The student earned a lettergrade of B")
+  elif score >=70:
+     print("The student earned a lettergrade of C")
+  elif score <70:
+     print("The student earned a lettergrade of F")
