@@ -1,0 +1,31 @@
+#HW question 1
+favcolors = ["blue","red","orange","yellow","green"]
+print(favcolors[0])
+print(favcolors[1])
+print(favcolors[2])
+print(favcolors[3])
+print(favcolors[4])
+#HW question 2
+for n in range(0,10,1):
+    print(n)
+    n+=n
+#HW question 3    
+n=0
+while n < 10:
+    print(n)
+    n=n+1
+#HW question 4    
+n=0
+while n<=11:
+    if n<=10:
+        print(n)
+    else:
+        print("greater than 10")
+    n=n+1
+#HW question 5
+s=0
+n=0
+while n<=30:
+    s=s+n
+    n=n+1
+print(s)
