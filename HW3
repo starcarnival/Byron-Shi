@@ -1,0 +1,37 @@
+#Question 0
+marks = {"Andy":88, "Amy":66, "James": 90, "Jules": 55, "Arthur": 77}
+
+#Question 1
+for name,grade in marks.items():
+print(name,"got a grade of",grade)
+
+#Question 2
+print(max(marks.values()))
+print(min(marks.values()))
+print(sum(marks.values())/len(marks))
+
+#Question 3
+for letter in marks.keys():
+    if letter[0] != "J":
+        print(letter)
+    else:
+        break
+
+#Question 4
+for letter in marks.keys():
+    if letter[0] != "J":
+        print(letter)
+    else:
+        continue
+
+#Question 5
+def score(grade):
+    for m in marks.keys():
+        if m == grade:
+            print(marks[m])
+            break
+    else:
+        print("score not found")
+        
+score("Andy")
+score("James")
