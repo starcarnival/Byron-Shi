@@ -7,6 +7,20 @@ for freq in mylist:
     else:
         stats[freq] = 1
 for key,value in stats.items():
-    print(key,":",value
+    print(key,":",value)
        
 #Q1.2
+import numpy as np
+import matplotlib.pyplot as plt
+x = stats.keys()
+y = stats.values()
+plt.bar(x,y)
+
+#Q1.3
+import json
+stats_json = json.dumps(stats)
+print(stats_json)
+data = open("./MT/jsondatamidterm","w")
+data.write(stats_json)
+
+#Q2
