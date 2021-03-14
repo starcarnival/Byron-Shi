@@ -24,3 +24,44 @@ data = open("./MT/jsondatamidterm","w")
 data.write(stats_json)
 
 #Q2
+import pandas as pd
+df = pd.read_csv("./MT/amazon.csv")
+df.head()
+
+df.shape
+
+df = df.fillna(0)
+df.head()
+
+df["Total Charged"] = df["Total Charged"].str.replace('$','').astype(float)
+df.head()
+
+print(df["Total Charged"].sum())
+print(df["Total Charged"].mean())
+print(df["Total Charged"].median())
+print(df["Total Charged"].min())
+print(df["Total Charged"].max())
+
+df["Tax Charged"] = df["Tax Charged"].str.replace('$','').astype(float)
+df.head()
+
+print(df["Tax Charged"].sum())
+print(df["Tax Charged"].mean())
+print(df["Tax Charged"].sum()/df["Total Charged"].sum())
+
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df.head()
+
+df.plot.bar(x='Order Date', y='Total Charged', rot=90, figsize=(20,10))
+
+daily_orders = df.groupby('Order Date').sum()["Total Charged"]
+daily_orders.plot.bar(figsize=(20,10))
+
+monthorder = df.groupby([df['Order Date'].dt.year,df['Order Date'].dt.month]).agg({"Total Charged":sum,"Tax Charged":sum})
+monthorder.plot.bar(figsize=(20,10))
+
+Shipping = df.groupby('Shipping Address State').count()["Order ID"]
+Shipping.plot.bar(figsize=(20,10))
+
+Shipping = df.groupby('Payment Instrument Type').count()["Order ID"]
+Shipping.plot.bar(figsize=(20,10))
