@@ -1,0 +1,23 @@
+class Queue:
+    def __init__(self):
+        self.Mylist = []
+    def insert(self,numap):
+        self.Mylist.append(numap)
+    def remove(self):
+        if len(self.Mylist)==0:
+            print("There is nothing in queue")
+        else:
+            self.Mylist.remove(self.Mylist[0])
+    def print(self):
+        print(self.Mylist)
+        
+q1 = Queue()
+q1.insert(5)
+q1.insert(6)
+q1.print()
+q1.insert(7)
+q1.remove()
+q1.print()
+q1.remove()
+q1.remove()
+q1.remove()
