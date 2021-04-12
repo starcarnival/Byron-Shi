@@ -1,0 +1,55 @@
+import random
+
+class rps:
+    def __init__(self):
+        self.playerscore = 0
+        self.aiscore = 0
+        self.choicedict = {1:"ROCK",2:"PAPER",3:"SCISSORS"}
+        
+    def playermove(self):
+        self.player = input("Please make your choice, 1:Rock 2:Paper 3:Scissors")
+        if self.player.isdigit() and (int(self.player) in [1,2,3]):
+            self.player_int = int(self.player)
+        else:
+            print("please enter 1 for rock, 2 for paper, and 3 for scissors\n")
+            self.playermove()
+                
+    def aimove(self):
+        self.ai = int(random.randint(1,3))
+    
+    def judge(self):
+        if (self.player_int == 1 and self.ai == 3) or (self.player_int == 2 and self.ai == 1) or (self.player_int == 3 and self.ai == 2):
+            print("Since you threw",self.choicedict[self.player_int],"and ai threw",self.choicedict[self.ai],"you win!")
+            self.playerscore += 1
+            print("The current score is, player:",self.playerscore,"ai:",self.aiscore)
+            self.onemore = input("Another round? Yes or No")
+        elif (self.player_int==self.ai):
+            print("Since you threw",self.choicedict[self.player_int],"and the ai threw",self.choicedict[self.ai],"this is a tie!")
+            print("The current score is, player:",self.playerscore,"vs. ai:",self.aiscore)
+            self.onemore = input("Another round? Yes or No")
+        else:
+            print("Since you threw",self.choicedict[self.player_int],"and ai threw",self.choicedict[self.ai],"ai wins!")
+            self.aiscore +=1
+            print("The current score is, player:",self.playerscore,"ai:",self.aiscore)
+            self.onemore = input("Another round? Yes or No")
+            
+    def main(self):
+        self.playermove()
+        self.aimove()
+        self.judge()
+        if self.onemore != "Y" and self.onemore !="y" and self.onemore !="Yes" and self.onemore !="yes":
+            print("\nThe game is finished\nThe final score is player:",self.playerscore,"vs. ai:",self.aiscore)
+            if self.playerscore > self.aiscore:
+                print("The player win")
+            elif self.playerscore == self.aiscore:
+                print("This is a tie")
+            else:
+                print("The ai win")
+        else:
+            print(" ")
+            self.main()
+    
+
+if __name__=="__main__":
+    round = rps()
+    round.main()
