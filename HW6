@@ -1,0 +1,68 @@
+Q1:
+matrixA <- matrix(c(7,2,9,4,12,13),nrow = 2,ncol = 3)
+matrixA
+matrixB <- matrix(c(1,2,3,7,8,9,12,13,14,19,20,21),nrow = 3,ncol = 4)
+matrixB
+matrixC = matrixA%*%matrixB
+matrixC
+
+Q2:
+id <- c(1,2,3,4,5)
+name <- c("Peter","Amy","Ryan","Gary","Michelle")
+salary <- c(623.3,515.2,611,729,843.25)
+office <- data.frame(id,name,salary)
+office
+office.dep <- cbind(office,department = c("HR","Accountant","CEO","CFO","Market"))
+office.dep
+office.new <- office.dep[c(1,3,5),c(2,3)]
+office.new
+office.bar <- office.dep[c(1,4,5),]
+barplot(office.bar[,3],names.arg = office.bar[,2])
+office.pie <- c(max(office[,3]),min(office[,3]),median(office[,3]))
+office.pie
+pie(c(max(office[,3]),min(office[,3]),median(office[,3])),label=c(office[rownames(office)[which.max(office$salary)],2],office[rownames(office)[which.min(office$salary)],2],"Peter"))
+
+Q3:
+valid <- function(x){
+  if (x == 1){
+    print("Your move is valid")
+    
+  }else{
+    print("please enter 1 for rock, 2 for paper, and 3 for scissors")
+  }
+}
+valid(1)
+valid(4)
+
+game <- function(numgame){
+  gamewin = 0
+  while (gamewin < numgame){
+    print("the player has won a game")
+    gamewin = gamewin +1
+  }
+}
+game(3)
+
+Comparison:
+    def playermove(self):
+        self.player = input("Please make your choice, 1:Rock 2:Paper 3:Scissors")
+        if self.player in [1,2,3]):
+            self.player_int = int(self.player)
+        else:
+            print("please enter 1 for rock, 2 for paper, and 3 for scissors\n")
+            self.playermove()
+    def main(self):
+        self.playermove()
+        self.aimove()
+        self.judge()
+        if self.onemore != "Y" and self.onemore !="y" and self.onemore !="Yes" and self.onemore !="yes":
+            print("\nThe game is finished\nThe final score is player:",self.playerscore,"vs. ai:",self.aiscore)
+            if self.playerscore > self.aiscore:
+                print("The player win")
+            elif self.playerscore == self.aiscore:
+                print("This is a tie")
+            else:
+                print("The ai win")
+        else:
+            print(" ")
+            self.main()
