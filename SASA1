@@ -1,0 +1,20 @@
+PROC IMPORT OUT=titan
+DATAFILE="C:/Users/byronshi/Downloads/titanic.xlsx"
+dbms=xlsx REPLACE OUT= work.class_x;
+SHEET="Sheet1";
+GETNAMES=YES;
+run;
+data _NULL_;
+set titan;
+array char[*} $ _CHAR_;
+array num[*} _NUMERIC_;
+nCharVar  = dim(char);
+nNumerVar = dim(num);
+put "titanic data set: " nCharVar= nNumerVar= ;
+stop;
+run;
+proc contents data = titan directory details out=titandict;
+run;
+proc freq data = titandict;
+tables type/nopercent;
+run;
